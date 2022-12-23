@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <Header />
+    <AddTask />
     <Tasks />
   </div>
 </template>
 
 <script>
+import AddTask from "./components/AddTask.vue"
 import Header from "./components/Header"
 import Tasks from "./components/Tasks.vue"
 export default {
@@ -13,6 +15,7 @@ export default {
   components: {
     Header,
     Tasks,
+    AddTask,
   },
 }
 </script>
