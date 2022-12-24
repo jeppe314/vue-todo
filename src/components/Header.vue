@@ -2,7 +2,11 @@
   <div class="header">
     <div class="nav">
       <h1>Todo-list</h1>
-      <Button @btn-click="$emit('toggle-add-task')" title="Add task" />
+      <Button
+        @btn-click="$emit('toggle-add-task')"
+        :title="showAddTask ? 'Close' : 'Add task'"
+        :color="showAddTask ? 'red' : 'green'"
+      />
     </div>
     <div class="footer">
       <AddTask v-show="showAddTask" />

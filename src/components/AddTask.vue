@@ -41,6 +41,9 @@ export default {
         time: this.time,
         reminder: this.reminder,
       })
+      this.text = ""
+      this.time = ""
+      this.reminder = false
     },
   },
 }
