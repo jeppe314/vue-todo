@@ -2,17 +2,47 @@
   <div class="addtask">
     <div>
       <label for="text">Task</label>
-      <input type="text" name="text" placeholder="Add task" />
+      <input type="text" name="text" placeholder="Add task" v-model="text" />
     </div>
     <div>
       <label for="time">Time</label>
-      <input type="text" name="time" placeholder="Add time &  day" />
+      <input
+        type="text"
+        name="time"
+        placeholder="Add time &  day"
+        v-model="time"
+      />
     </div>
+    <div class="reminder">
+      <label for="reminder">Set reminder</label>
+      <input type="checkbox" v-model="reminder" />
+    </div>
+    <Button title="Submit" @click="onSubmit" />
   </div>
 </template>
 <script>
+import Button from "./Button.vue"
 export default {
   name: "AddTask",
+  data() {
+    return {
+      text: "",
+      time: "",
+      reminder: false,
+    }
+  },
+  components: {
+    Button,
+  },
+  methods: {
+    onSubmit() {
+      console.log({
+        text: this.text,
+        time: this.time,
+        reminder: this.reminder,
+      })
+    },
+  },
 }
 </script>
 <style scoped>
@@ -29,5 +59,10 @@ label {
 input {
   width: 100%;
   padding: 1em 0.5em;
+}
+.reminder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

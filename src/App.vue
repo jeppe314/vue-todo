@@ -1,21 +1,29 @@
 <template>
   <div class="container">
-    <Header />
-    <AddTask />
+    <Header @toggle-add-task="toggleAddTask" :showAddTask="this.showAddTask" />
     <Tasks />
   </div>
 </template>
 
 <script>
-import AddTask from "./components/AddTask.vue"
 import Header from "./components/Header"
 import Tasks from "./components/Tasks.vue"
 export default {
   name: "App",
+  data() {
+    return {
+      showAddTask: true,
+    }
+  },
+  methods: {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
+      console.log(this.showAddTask)
+    },
+  },
   components: {
     Header,
     Tasks,
-    AddTask,
   },
 }
 </script>

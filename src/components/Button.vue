@@ -1,9 +1,17 @@
 <template>
-  <button class="btn">Add task</button>
+  <button @click="handleClick" class="btn">{{ title }}</button>
 </template>
 <script>
 export default {
   name: "Button",
+  props: {
+    title: String,
+  },
+  methods: {
+    handleClick() {
+      this.$emit("btn-click")
+    },
+  },
 }
 </script>
 <style>
@@ -13,5 +21,6 @@ export default {
   border-radius: 5px;
   border: none;
   padding: 1em;
+  cursor: pointer;
 }
 </style>
