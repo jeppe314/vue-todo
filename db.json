@@ -1,28 +1,16 @@
 {
   "tasks": [
     {
-      "text": "aslkd",
-      "time": "lkzsd",
-      "reminder": false,
-      "id": 5
-    },
-    {
-      "text": "asldk",
-      "time": "asldkj",
-      "reminder": false,
-      "id": 6
-    },
-    {
-      "text": "oasdasdj",
-      "time": "asdklja",
-      "reminder": true,
-      "id": 7
-    },
-    {
       "text": "Far ti gymme",
       "time": "Idag",
       "reminder": true,
       "id": 8
+    },
+    {
+      "text": "Ät julmat",
+      "time": "Hela lovet",
+      "reminder": false,
+      "id": 9
     }
   ]
 }
