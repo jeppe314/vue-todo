@@ -9,7 +9,7 @@
       />
     </div>
     <div class="footer">
-      <AddTask v-show="showAddTask" />
+      <AddTask v-show="showAddTask" @add-task="addTask" />
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ import Button from "./Button.vue"
 import AddTask from "./AddTask.vue"
 export default {
   name: "Header",
+  methods: {
+    addTask(newTask) {
+      this.$emit("add-task", newTask)
+    },
+  },
   components: {
     Button,
     AddTask,

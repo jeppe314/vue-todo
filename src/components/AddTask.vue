@@ -35,19 +35,26 @@ export default {
     Button,
   },
   methods: {
-    onSubmit() {
-      console.log({
-        text: this.text,
-        time: this.time,
-        reminder: this.reminder,
-      })
+    resetForm() {
       this.text = ""
       this.time = ""
       this.reminder = false
     },
+    async onSubmit() {
+      if (this.text && this.time) {
+        const newTask = {
+          text: this.text,
+          time: this.time,
+          reminder: this.reminder,
+        }
+        this.$emit("add-task", newTask)
+        this.resetForm()
+      }
+    },
   },
 }
 </script>
+
 <style scoped>
 .addtask {
   display: flex;

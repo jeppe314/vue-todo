@@ -1,7 +1,11 @@
 <template>
   <div class="container">
-    <Header @toggle-add-task="toggleAddTask" :showAddTask="this.showAddTask" />
-    <Tasks />
+    <Header
+      @toggle-add-task="toggleAddTask"
+      :showAddTask="this.showAddTask"
+      @add-task="postTask"
+    />
+    <Tasks :tasks="tasks" @delete-task="deleteTask" />
   </div>
 </template>
 
@@ -13,13 +17,48 @@ export default {
   data() {
     return {
       showAddTask: true,
+      tasks: {},
     }
   },
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-      console.log(this.showAddTask)
     },
+    async postTask(task) {
+      const res = await fetch("api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text: task.text,
+          time: task.time,
+          reminder: task.reminder,
+        }),
+      })
+      const data = await res.json()
+      this.tasks = [...this.tasks, data]
+    },
+    async deleteTask(id) {
+      const res = await fetch(`api/tasks/${id}`, {
+        method: "DELETE",
+      })
+
+      this.tasks = this.tasks.filter((task) => task.id != id)
+    },
+    async fetchTasks() {
+      const res = await fetch("api/tasks")
+      const data = res.json()
+      return data
+    },
+    async fetchTask(id) {
+      const res = await fetch(`api/tasks/${id}`)
+      const data = res.json()
+      return data
+    },
+  },
+  async created() {
+    this.tasks = await this.fetchTasks()
   },
   components: {
     Header,
