@@ -5,7 +5,11 @@
       :showAddTask="this.showAddTask"
       @add-task="postTask"
     />
-    <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder"/>
+    <Tasks
+      :tasks="tasks"
+      @delete-task="deleteTask"
+      @toggle-reminder="toggleReminder"
+    />
   </div>
 </template>
 
@@ -21,8 +25,22 @@ export default {
     }
   },
   methods: {
-    toggleReminder (id) {
-      console.log(id);
+    async toggleReminder(id) {
+      const taskToToggle = await this.fetchTask(id)
+      const updatedTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
+      const res = await fetch(`api/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedTask),
+      })
+
+      const data = await res.json()
+
+      this.tasks = this.tasks.map((task) =>
+        task.id === id ? { ...task, reminder: data.reminder } : task
+      )
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask

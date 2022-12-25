@@ -17,7 +17,7 @@ export default {
   props: {
     task: Object,
   },
-  emits: ["toggle-reminder"],
+  emits: ["toggle-reminder", "delete-task"],
 }
 </script>
 <style>

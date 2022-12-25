@@ -1,33 +1,9 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Go to gym",
-      "time": "March 3 15pm",
-      "reminder": false
-    },
-    {
-      "id": 2,
-      "text": "Buy groceries",
-      "time": "Feb 15pm",
-      "reminder": true
-    },
-    {
-      "id": 3,
-      "text": "Clean clothes",
-      "time": "Dec 3 15pm",
-      "reminder": false
-    },
-    {
-      "text": "Tjenare",
-      "time": "hejsan",
-      "reminder": true,
-      "id": 4
-    },
-    {
       "text": "aslkd",
       "time": "lkzsd",
-      "reminder": true,
+      "reminder": false,
       "id": 5
     },
     {
@@ -35,6 +11,18 @@
       "time": "asldkj",
       "reminder": false,
       "id": 6
+    },
+    {
+      "text": "oasdasdj",
+      "time": "asdklja",
+      "reminder": true,
+      "id": 7
+    },
+    {
+      "text": "Far ti gymme",
+      "time": "Idag",
+      "reminder": true,
+      "id": 8
     }
   ]
 }
