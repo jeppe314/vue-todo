@@ -2,13 +2,10 @@
   "name": "vue-todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jeppe314.github.io/vue-todo",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "backend": "json-server --watch db.json --port 5000",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "backend": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
     "core-js": "^3.8.3",
