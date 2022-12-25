@@ -5,7 +5,7 @@
       :showAddTask="this.showAddTask"
       @add-task="postTask"
     />
-    <Tasks :tasks="tasks" @delete-task="deleteTask" />
+    <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder"/>
   </div>
 </template>
 
@@ -21,6 +21,9 @@ export default {
     }
   },
   methods: {
+    toggleReminder (id) {
+      console.log(id);
+    },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },

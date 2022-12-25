@@ -4,6 +4,7 @@
       @delete-task="$emit('delete-task', task.id)"
       :tasks="tasks"
       :task="task"
+      @toggleReminder="$emit('toggle-reminder', task.id)"
     />
   </div>
 </template>
@@ -11,12 +12,18 @@
 import Task from "./Task.vue"
 export default {
   name: "Tasks",
+  methods: {
+    testing(id) {
+      console.log(id)
+    },
+  },
   props: {
     tasks: Object,
   },
   components: {
     Task,
   },
+  emits: ["delete-task", "toggle-reminder"],
 }
 </script>
 <style>

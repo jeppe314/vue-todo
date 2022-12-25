@@ -1,5 +1,9 @@
 <template>
-  <div class="task" :class="{'task reminder-true': task.reminder}">
+  <div
+    class="task"
+    :class="{ 'task reminder-true': task.reminder }"
+    @dblclick="$emit('toggle-reminder', task.id)"
+  >
     <div>
       <h3>{{ task.text }}</h3>
       <p>{{ task.time }}</p>
@@ -13,6 +17,7 @@ export default {
   props: {
     task: Object,
   },
+  emits: ["toggle-reminder"],
 }
 </script>
 <style>
